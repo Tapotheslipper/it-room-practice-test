@@ -1,6 +1,8 @@
-const http = require("http"); // here, I require "http" built-in module
-http.createServer(function(request, response) { // here, I call to "createServer" method/function from the module
-    response.end("Hello NodeJS!"); // sending the response in output
-}).listen(3000, "127.0.0.1", function() { // Initializing the server port connection
-    console.log("The server started listening to queries at port 3000"); // sending a message to the console
+import http from 'http'; // importing the built-in http module
+const server = http.createServer((request, response) => {
+    response.end("Hello NodeJS");
+});
+
+server.listen(3000, '127.0.0.1', () => {
+    console.log("Server started on PORT :3000");
 });
