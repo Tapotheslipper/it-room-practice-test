@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Tapotheslipper/itroom-rest-api#readme",
   "dependencies": {
+    "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "nodemon": "^3.1.10"
   }
