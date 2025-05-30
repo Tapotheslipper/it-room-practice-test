@@ -12,8 +12,20 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
-app.get('/', (request, response) => {
-    response.send('Ebal Baranov.');
+app.get('/', (req, res) => {
+    res.send('Ebal Baranov.');
+});
+
+app.post('/', (req, res) => {
+    res.send('Got the POST request.');
+});
+
+app.put('/', (req, res) => {
+    res.send('Got the PUT request at /user.');
+});
+
+app.delete('/', (req, res) => {
+    res.send('Got the DELETE request at /user.');
 });
 
 app.listen(port, () => {
