@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "placeholder",
+      "content": "placehodler"
+    },
+    {
+      "id": 2,
+      "title": "adun",
+      "content": "my first post"
+    },
+    {
+      "id": 3,
+      "title": "fash",
+      "content": "my second post"
+    },
+    {
+      "id": 4,
+      "title": "dada",
+      "content": "my fourth post"
+    }
+  ]
+}
