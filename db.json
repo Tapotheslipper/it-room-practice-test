@@ -1,19 +1,24 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "th",
+      "email": "ledddg@xx.xx",
+      "password": "$2b$10$Nx.uhW5xPi0Hg.FS9ODB6.0ou4mzFdakLMWZoMN.MjQCfSnAiLYiu"
+    }
+  ],
   "posts": [
     {
       "id": 1,
-      "title": "placeholder",
-      "content": "placehodler"
+      "title": "ggsg",
+      "content": "sdsdsd",
+      "posted": false
     },
     {
-      "id": 3,
-      "title": "fash",
-      "content": "my second post"
-    },
-    {
-      "id": 4,
-      "title": "dada",
-      "content": "my fourth post"
+      "id": 2,
+      "title": "ddg",
+      "content": "sosi",
+      "posted": false
     }
   ]
 }
