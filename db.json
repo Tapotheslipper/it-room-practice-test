@@ -5,6 +5,18 @@
       "name": "th",
       "email": "ledddg@xx.xx",
       "password": "$2b$10$Nx.uhW5xPi0Hg.FS9ODB6.0ou4mzFdakLMWZoMN.MjQCfSnAiLYiu"
+    },
+    {
+      "id": 2,
+      "name": "meiam",
+      "email": "sosi@gmail.com",
+      "password": "$2b$10$qxMfr6T8V1qqjW.FZ2w5DuUOA/OZ1Npx6TLHp0dhCR2w/6kJIDo6y"
+    },
+    {
+      "id": 3,
+      "name": "youare",
+      "email": "sosat@gmail.com",
+      "password": "$2b$10$gVLGRjcWqrNUicA8JpdDOewEvm7dpW7ukG5WsxGyDQEdaDEr74h2a"
     }
   ],
   "posts": [
