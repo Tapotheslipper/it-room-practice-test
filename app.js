@@ -9,9 +9,12 @@ import { handle500, handle404 } from "./middleware/error-handle.js";
 import { getDatabase } from "./utils/get-db.js";
 import fs from "fs";
 import path from "path";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(process.cwd(), "public")));

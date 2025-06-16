@@ -24,13 +24,13 @@
       "id": 1,
       "title": "ggsg",
       "content": "sdsdsd",
-      "posted": false
+      "posted": true
     },
     {
       "id": 2,
       "title": "ddg",
       "content": "sosi",
-      "posted": false
+      "posted": true
     }
   ]
 }

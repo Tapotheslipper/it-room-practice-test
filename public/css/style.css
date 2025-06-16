@@ -1,0 +1,103 @@
+/* MARK: GENERAL */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#wrapper {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  padding: 0 20px;
+  flex: 1;
+}
+
+#page-title {
+  display: inline;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* MARK: HEADER */
+
+header,
+header nav ul {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+}
+
+header {
+  padding: 0 20px;
+  background: lightgray;
+}
+
+#header-logo img,
+#header-logo {
+  height: 100%;
+}
+
+header h1 {
+  font-size: 3em;
+}
+
+header nav {
+  flex: 0.8;
+}
+
+header nav ul {
+  list-style-type: none;
+}
+
+header nav ul li {
+  font-size: 1.4em;
+}
+
+/* MARK: FOOTER */
+
+footer {
+  height: 120px;
+  background: lightgray;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+/* MARK: HOME */
+
+.banner {
+  background-image: url("/images/bg.jpg");
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-size: cover;
+}
+
+.articles p {
+  text-indent: 2em;
+}
+
+/* MARK: POSTS */
+
+.posts-list {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+
+.posts-list div {
+  background-color: lightblue;
+  border-radius: 10px;
+}

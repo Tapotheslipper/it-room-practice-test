@@ -3,30 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
+    <title>Test project || {{ docTitle }}</title>
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif" />
   </head>
   <body>
-    <header>
-      <div id="header-logo">
-        <a href="/">
-          <img src="/images/logo.png" />
-        </a>
-      </div>
-      <h1>{{ header }}</h1>
-      <nav>
-        <ul>
-          <li><a href="/">home</a></li>
-          <li><a href="/html/posts.html">posts</a></li>
-          <li><a href="/html/auth.html">login</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>{{ content }}</main>
-    <footer>
-      <span>2042 my comp</span>
-    </footer>
+    <div id="wrapper">
+      <header>
+        <div id="header-logo">
+          <a href="/">
+            <img src="/images/logo.png" />
+          </a>
+        </div>
+        <h1>Test header</h1>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <li><a href="/auth">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div id="page-title">
+          <h2>{{ title }}</h2>
+        </div>
+        <div id="page-content">{{ content }}</div>
+      </main>
+      <footer>
+        <span>2042 my comp</span>
+      </footer>
+      <script async src=""></script>
+    </div>
   </body>
 </html>

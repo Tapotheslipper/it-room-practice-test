@@ -1,2 +1,8 @@
-<h2>Posts page</h2>
-<p>This is all posts page</p>
+<div class="posts-list">
+  {{ #each posts }}
+  <div>
+    <h3>{{ this.title }}</h3>
+    <div>{{ this.content }}</div>
+  </div>
+  {{ /each }}
+</div>
