@@ -16,10 +16,9 @@ function loadPosts() {
   });
 }
 
-export function getAllPosts(req, res) {
+/* export function getAllPosts(req, res) {
   res.json(posts);
-  /*  */
-}
+} */
 
 export function getPost(req, res) {
   let postId = parseInt(req.params.id);
@@ -27,7 +26,7 @@ export function getPost(req, res) {
   if (!post) {
     return res.status(404).send("post not found");
   }
-  res.json(post);
+  // res.json(post);
 }
 
 export function createPost(req, res) {
@@ -35,17 +34,21 @@ export function createPost(req, res) {
     id: posts.length + 1,
     title: req.body.title,
     content: req.body.content,
-    posted: false,
+    posted: req.body.posted,
     userId: req.user.id,
   };
   posts.push(newPost);
-  fs.writeFile(dbPath, JSON.stringify({ users: global.users, posts }, null, 2), (err) => {
-    if (err) {
-      console.log("error writing in file: ", err);
-      return;
+  fs.writeFile(
+    dbPath,
+    JSON.stringify({ users: global.users, posts }, null, 2),
+    (err) => {
+      if (err) {
+        console.log("error writing in file: ", err);
+        return;
+      }
+      // res.status(201).json(newPost);
     }
-    res.status(201).json(newPost);
-  });
+  );
 }
 
 export function publishPost(req, res) {
@@ -61,7 +64,7 @@ export function publishPost(req, res) {
         console.log("error writing in file: ", err);
         return;
       }
-      res.json(posts[postIndex]);
+      // res.json(posts[postIndex]);
     });
   }
 }
@@ -80,7 +83,7 @@ export function editPost(req, res) {
       console.log("error changing in file: ", err);
       return;
     }
-    res.json(posts[postIndex]);
+    // res.json(posts[postIndex]);
   });
 }
 
@@ -92,7 +95,7 @@ export function removePost(req, res) {
       console.log("error removing from file: ", err);
       return;
     }
-    res.status(204).send();
+    // res.status(204).send();
   });
 }
 

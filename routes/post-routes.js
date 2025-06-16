@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getAllPosts,
+  // getAllPosts,
   getPost,
   createPost,
   publishPost,
@@ -11,9 +11,9 @@ import { authenticateJWT } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.get("/", getAllPosts);
+// router.get("/", getAllPosts);
 router.get("/:id", getPost);
-router.post("/", authenticateJWT, createPost);
+router.post("/", createPost);
 router.patch("/:id", authenticateJWT, publishPost);
 router.put("/:id", authenticateJWT, editPost);
 router.delete("/:id", authenticateJWT, removePost);

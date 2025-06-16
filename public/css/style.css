@@ -6,15 +6,19 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+textarea {
+  resize: vertical;
+}
+
 #wrapper {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
 
 main {
@@ -26,6 +30,10 @@ main {
   display: inline;
   text-align: center;
   margin: 0 auto;
+}
+
+#page-content > div {
+  margin: 20px 0;
 }
 
 /* MARK: HEADER */
@@ -68,6 +76,7 @@ header nav ul li {
 /* MARK: FOOTER */
 
 footer {
+  margin-top: 30px;
   height: 120px;
   background: lightgray;
   padding: 20px;
@@ -97,7 +106,56 @@ footer {
   gap: 20px;
 }
 
-.posts-list div {
+.posts-list > div {
   background-color: lightblue;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+#new-post-cont {
+  display: flex;
+  flex-flow: row;
+  gap: 20px;
+}
+
+#new-post-cont > button {
+  height: 30px;
+  border: 1px dashed gray;
   border-radius: 10px;
+  flex: 1;
+}
+
+#new-post:not(.new-post-active) {
+  display: none;
+}
+
+#post-form {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+
+#post-form > input,
+#post-form > textarea {
+  width: calc(100% - (14px * 2));
+  padding: 14px;
+  border-radius: 10px;
+}
+
+#post-form > div {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+/* MARK: ERROR */
+
+.error span {
+  display: block;
+}
+
+.error img {
+  width: 100%;
+  aspect-ratio: 16/9;
 }
