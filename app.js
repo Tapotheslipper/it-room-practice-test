@@ -20,8 +20,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(process.cwd(), "public")));
 getDatabase();
 
-app.use("/api/users", userRoutes);
-app.use("/api/posts", postRoutes);
+app.use("/users", userRoutes);
+// app.use("/posts", postRoutes);
 app.use("/", htmlRoutes);
 
 app.use(handle404);

@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 import { dbPath } from "../config.js";
 
 let posts = [];
@@ -11,11 +12,13 @@ function loadPosts() {
     }
     let dbData = JSON.parse(data);
     posts = dbData.posts || [];
+    global.posts = posts;
   });
 }
 
 export function getAllPosts(req, res) {
   res.json(posts);
+  /*  */
 }
 
 export function getPost(req, res) {
@@ -36,7 +39,7 @@ export function createPost(req, res) {
     userId: req.user.id,
   };
   posts.push(newPost);
-  fs.writeFile(dbPath, JSON.stringify({ users, posts }, null, 2), (err) => {
+  fs.writeFile(dbPath, JSON.stringify({ users: global.users, posts }, null, 2), (err) => {
     if (err) {
       console.log("error writing in file: ", err);
       return;
