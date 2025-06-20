@@ -2,11 +2,10 @@
 
 let newPostBut = document.getElementById("new-post-but");
 let newPost = document.getElementById("new-post");
-let saveDraftBUt = document.getElementById("save-draft-but");
+let saveDraftBut = document.getElementById("save-draft-but");
 let postBut = document.getElementById("post-but");
 
 newPostBut.addEventListener("click", showNewPost);
-saveDraftBUt.addEventListener("click", saveDraft);
 
 function showNewPost() {
   newPost.classList.add("new-post-active");
@@ -34,22 +33,26 @@ function saveDraft(event) {
   };
 
   console.log(postData);
-  /* try {
-    const response = await fetch("/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(postData),
-    });
 
-    if (response.ok) {
-      const result = await response.json();
-      console.log("draft saved: " + result);
-    } else {
-      console.error("error saving draft: " + response.statusText);
-    }
-  } catch (err) {
-    console.log("network error: " + err);
-  } */
+  fetch("/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(postData),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("network response error");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("post created: " + data);
+    })
+    .catch((error) => {
+      console.error("there was a problem: ", error);
+    });
 }
+
+saveDraftBut.addEventListener("click", saveDraft);

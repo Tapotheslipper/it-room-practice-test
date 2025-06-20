@@ -2,32 +2,7 @@ import fs from "fs";
 import path from "path";
 import { dbPath } from "../config.js";
 
-let posts = [];
-
-function loadPosts() {
-  fs.readFile(dbPath, "utf-8", (err, data) => {
-    if (err) {
-      console.log("error reading file: ", err);
-      return;
-    }
-    let dbData = JSON.parse(data);
-    posts = dbData.posts || [];
-    global.posts = posts;
-  });
-}
-
-/* export function getAllPosts(req, res) {
-  res.json(posts);
-} */
-
-export function getPost(req, res) {
-  let postId = parseInt(req.params.id);
-  let post = posts.find((p) => p.id === postId);
-  if (!post) {
-    return res.status(404).send("post not found");
-  }
-  // res.json(post);
-}
+let posts = global.posts;
 
 export function createPost(req, res) {
   let newPost = {
@@ -35,20 +10,18 @@ export function createPost(req, res) {
     title: req.body.title,
     content: req.body.content,
     posted: req.body.posted,
-    userId: req.user.id,
+    // userId: req.user.id,
   };
+
   posts.push(newPost);
-  fs.writeFile(
-    dbPath,
-    JSON.stringify({ users: global.users, posts }, null, 2),
-    (err) => {
-      if (err) {
-        console.log("error writing in file: ", err);
-        return;
-      }
-      // res.status(201).json(newPost);
+
+  fs.writeFile(dbPath, JSON.stringify({ posts }), (err) => {
+    if (err) {
+      console.log("error writing in file: " + err);
+      return;
     }
-  );
+    console.log("success at new post");
+  });
 }
 
 export function publishPost(req, res) {
@@ -61,10 +34,9 @@ export function publishPost(req, res) {
     posts[postIndex].posted = req.body.posted;
     fs.writeFile(dbPath, JSON.stringify({ posts }, null, 2), (err) => {
       if (err) {
-        console.log("error writing in file: ", err);
+        console.log("error writing in file: " + err);
         return;
       }
-      // res.json(posts[postIndex]);
     });
   }
 }
@@ -80,10 +52,9 @@ export function editPost(req, res) {
   posts[postIndex].content = req.body.content;
   fs.writeFile(dbPath, JSON.stringify({ posts }, null, 2), (err) => {
     if (err) {
-      console.log("error changing in file: ", err);
+      console.log("error changing in file: " + err);
       return;
     }
-    // res.json(posts[postIndex]);
   });
 }
 
@@ -92,11 +63,8 @@ export function removePost(req, res) {
   posts = posts.filter((p) => p.id !== postId);
   fs.writeFile(dbPath, JSON.stringify({ posts }, null, 2), (err) => {
     if (err) {
-      console.log("error removing from file: ", err);
+      console.log("error removing from file: " + err);
       return;
     }
-    // res.status(204).send();
   });
 }
-
-loadPosts();

@@ -27,10 +27,9 @@ function renderPage(res, pageTitle = "", pageContent, scriptSrc = "") {
 export function getHomePage(req, res) {
   const contentPath = path.join(process.cwd(), "/public", "html", "home.html");
   const scriptSrc = "/js/home.js";
-
   fs.readFile(contentPath, "utf-8", (err, content) => {
     if (err) {
-      return res.status(500).send("error loading page: ", err);
+      return res.status(500).send("error loading page: " + err);
     }
 
     renderPage(res, "Home page", content, scriptSrc);
@@ -40,7 +39,6 @@ export function getHomePage(req, res) {
 export function getPostsPage(req, res) {
   const contentPath = path.join(process.cwd(), "/public", "html", "posts.html");
   const scriptSrc = "/js/posts.js";
-
   fs.readFile(contentPath, "utf-8", (err, content) => {
     if (err) {
       return res.status(500).send("error getting posts page: " + err);
@@ -65,7 +63,6 @@ export function getPostsPage(req, res) {
 export function getAuthPage(req, res) {
   const contentPath = path.join(process.cwd(), "/public", "html", "auth.html");
   const scriptSrc = "/js/auth.js";
-
   fs.readFile(contentPath, "utf-8", (err, content) => {
     if (err) {
       return res.status(500).send("error getting page: " + err);
@@ -78,13 +75,12 @@ export function getAuthPage(req, res) {
 export function getError(req, res, errorMessage) {
   const contentPath = path.join(process.cwd(), "/public", "html", "error.html");
   const scriptSrc = "/js/error.js";
-
   fs.readFile(contentPath, "utf-8", (err, content) => {
     if (err) {
       res.status(500).send("error loading error page: " + err);
     }
 
-    content = content.replace("{{ errorMessage }}", errorMessage);
+    content = content.replace("{{ errorMessage }}" + errorMessage);
     renderPage(res, "Error", content, scriptSrc);
   });
 }

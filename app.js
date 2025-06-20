@@ -17,6 +17,7 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(process.cwd(), "public")));
 getDatabase();
 
@@ -28,5 +29,5 @@ app.use(handle404);
 app.use(handle500);
 
 app.listen(port, () => {
-  console.log("server listening on port: ", port);
+  console.log("server listening on port: " + port);
 });

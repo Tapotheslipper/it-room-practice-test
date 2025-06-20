@@ -1,7 +1,7 @@
 import express from "express";
 import {
   // getAllPosts,
-  getPost,
+  // getPost,
   createPost,
   publishPost,
   editPost,
@@ -12,10 +12,10 @@ import { authenticateJWT } from "../middleware/auth.js";
 const router = express.Router();
 
 // router.get("/", getAllPosts);
-router.get("/:id", getPost);
+// router.get("/:id", getPost);
 router.post("/", createPost);
-router.patch("/:id", authenticateJWT, publishPost);
-router.put("/:id", authenticateJWT, editPost);
-router.delete("/:id", authenticateJWT, removePost);
+router.patch("/:id", publishPost);
+router.put("/:id", editPost);
+router.delete("/:id", removePost);
 
 export const postRoutes = router;

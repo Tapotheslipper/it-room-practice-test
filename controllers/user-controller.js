@@ -9,7 +9,7 @@ let users = [];
 function loadUsers() {
   fs.readFile(dbPath, "utf-8", (err, data) => {
     if (err) {
-      console.log("error reading data: ", err);
+      console.log("error reading data: " + err);
       return;
     }
     let dbData = JSON.parse(data);
